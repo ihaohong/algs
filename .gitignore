@@ -14,3 +14,4 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 
 .idea
+resources/algs4-data.zip
