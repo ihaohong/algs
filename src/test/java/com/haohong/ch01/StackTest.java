@@ -1,16 +1,17 @@
 package com.haohong.ch01;
 
+import com.haohong.ch01.inter.Stack;
 import edu.princeton.cs.algs4.StdOut;
 import junit.framework.TestCase;
 
 /**
  * Created by haohong on 02/12/2017.
  */
-public class ResizingArrayStackTest extends TestCase {
-    public void test() {
+public class StackTest extends TestCase {
+    public void testResizingArrayStack() {
         String[] items = {"to", "be", "or", "not", "to", "-", "be", "-", "-", "that", "-", "-", "-", "is"};
 
-        ResizingArrayStack<String> stack = new ResizingArrayStack<String>();
+        Stack<String> stack = new ResizingArrayStack<String>();
 
         StringBuilder result = new StringBuilder();
         for (String item: items) {

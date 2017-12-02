@@ -1,11 +1,13 @@
 package com.haohong.ch01;
 
+import com.haohong.ch01.inter.Stack;
+
 import java.util.Iterator;
 
 /**
  * Created by haohong on 02/12/2017.
  */
-public class ResizingArrayStack<Item> implements Iterable<Item> {
+public class ResizingArrayStack<Item> implements Iterable<Item>, Stack<Item> {
     private Item[] a = (Item[]) new Object[1];
     private int N = 0;
 
