@@ -7,7 +7,7 @@ import java.util.Iterator;
 /**
  * Created by haohong on 02/12/2017.
  */
-public class ResizingArrayStack<Item> implements Iterable<Item>, Stack<Item> {
+public class ResizingArrayStack<Item> implements Stack<Item> {
     private Item[] a = (Item[]) new Object[1];
     private int N = 0;
 

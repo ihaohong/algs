@@ -7,7 +7,7 @@ import java.util.Iterator;
 /**
  * Created by haohong on 02/12/2017.
  */
-public class ListStack<Item> implements Stack<Item>, Iterator<Item> {
+public class ListStack<Item> implements Stack<Item> {
     private Node first;
 
     private int N = 0;
@@ -42,15 +42,25 @@ public class ListStack<Item> implements Stack<Item>, Iterator<Item> {
         return item;
     }
 
-    public boolean hasNext() {
-        return false;
+    public Iterator<Item> iterator() {
+        return new ListIterator();
     }
 
-    public Item next() {
-        return null;
-    }
+    private class ListIterator implements Iterator<Item> {
+        private Node current = first;
 
-    public void remove() {
+        public boolean hasNext() {
+            return current != null;
+        }
 
+        public Item next() {
+            Item item = current.item;
+            current = current.next;
+            return item;
+        }
+
+        public void remove() {
+
+        }
     }
 }

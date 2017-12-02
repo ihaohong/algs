@@ -9,34 +9,51 @@ public class StackTest extends TestCase {
         String[] items = {"to", "be", "or", "not", "to", "-", "be", "-", "-", "that", "-", "-", "-", "is"};
 
         Stack<String> stack = new ResizingArrayStack<String>();
+        assert stack.size() == 0;
 
-        StringBuilder result = new StringBuilder();
-        for (String item: items) {
+        StringBuilder poped = new StringBuilder();
+        for (String item : items) {
             if (!item.equals("-")) {
                 stack.push(item);
             } else {
-                result.append(stack.pop() + " ");
+                poped.append(stack.pop() + " ");
             }
         }
 
-        assert result.toString().equals("to be not that or be ");
+        assert poped.toString().equals("to be not that or be ");
         assert stack.size() == 2;
+
+        StringBuilder left = new StringBuilder();
+        for (String item : stack) {
+            left.append(item + " ");
+        }
+
+        assert left.toString().equals("is to ");
     }
 
     public void testListStack() {
         String[] items = {"to", "be", "or", "not", "to", "-", "be", "-", "-", "that", "-", "-", "-", "is"};
 
         Stack<String> stack = new ListStack<String>();
-        StringBuilder result = new StringBuilder();
+        assert stack.size() == 0;
+
+        StringBuilder poped = new StringBuilder();
         for (String item: items) {
             if (!item.equals("-")) {
                 stack.push(item);
             } else {
-                result.append(stack.pop() + " ");
+                poped.append(stack.pop() + " ");
             }
         }
 
-        assert result.toString().equals("to be not that or be ");
+        assert poped.toString().equals("to be not that or be ");
         assert stack.size() == 2;
+
+        StringBuilder left = new StringBuilder();
+        for (String item : stack) {
+            left.append(item + " ");
+        }
+
+        assert left.toString().equals("is to ");
     }
 }
