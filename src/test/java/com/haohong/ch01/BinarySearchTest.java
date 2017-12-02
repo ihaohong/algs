@@ -21,11 +21,13 @@ public class BinarySearchTest extends TestCase {
         Arrays.sort(whitelist);
 
         int[] alllist = In.readInts("src/test/resource/tinyT.txt");
-        for (int i : alllist) {
-            int key = i;
+        String result = "";
+        for (int key : alllist) {
             if (BinarySearch.rank(key, whitelist) < 0) {
-                StdOut.println(key);
+                result += key + ",";
             }
         }
+
+        assertEquals("50,99,13,", result);
     }
 }
