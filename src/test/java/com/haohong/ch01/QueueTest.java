@@ -1,6 +1,7 @@
 package com.haohong.ch01;
 
 import com.haohong.ch01.inter.Queue;
+import edu.princeton.cs.algs4.In;
 import junit.framework.TestCase;
 
 /**
@@ -8,7 +9,7 @@ import junit.framework.TestCase;
  */
 public class QueueTest extends TestCase {
     public void testQueue() {
-        String[] items = {"to", "be", "or", "not", "to", "-", "be", "-", "-", "that", "-", "-", "-", "is"};
+        String[] items = new In("src/test/resource/tobe.txt").readAllStrings();
 
         Queue<String> queue = new ListQueue<String>();
         assert queue.size() == 0;

@@ -1,12 +1,13 @@
 package com.haohong.ch01;
 
 import com.haohong.ch01.inter.Stack;
+import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 import junit.framework.TestCase;
 
 public class StackTest extends TestCase {
     public void testResizingArrayStack() {
-        String[] items = {"to", "be", "or", "not", "to", "-", "be", "-", "-", "that", "-", "-", "-", "is"};
+        String[] items = new In("src/test/resource/tobe.txt").readAllStrings();
 
         Stack<String> stack = new ResizingArrayStack<String>();
         assert stack.size() == 0;
@@ -32,7 +33,7 @@ public class StackTest extends TestCase {
     }
 
     public void testListStack() {
-        String[] items = {"to", "be", "or", "not", "to", "-", "be", "-", "-", "that", "-", "-", "-", "is"};
+        String[] items = new In("src/test/resource/tobe.txt").readAllStrings();
 
         Stack<String> stack = new ListStack<String>();
         assert stack.size() == 0;

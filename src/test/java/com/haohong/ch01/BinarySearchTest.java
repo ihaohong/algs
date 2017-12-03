@@ -17,10 +17,10 @@ public class BinarySearchTest extends TestCase {
     }
 
     public void testRank2() {
-        int[] whitelist = In.readInts("src/test/resource/tinyW.txt");
+        int[] whitelist = new In("src/test/resource/tinyW.txt").readAllInts();
         Arrays.sort(whitelist);
 
-        int[] alllist = In.readInts("src/test/resource/tinyT.txt");
+        int[] alllist = new In("src/test/resource/tinyT.txt").readAllInts();
         String result = "";
         for (int key : alllist) {
             if (BinarySearch.rank(key, whitelist) < 0) {
