@@ -9,4 +9,8 @@ public class MainTest extends TestCase {
 
         assertEquals(result, "hello world");
     }
+
+    public void testCI() {
+        assert 1 == 2;
+    }
 }
