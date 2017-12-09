@@ -27,7 +27,7 @@ public class MergeTest extends TestCase {
         assert Merge.isSorted(ints);
     }
 
-    public void test4Kints() {
+    public void test1Mints() {
         int[] ints = new In("src/test/resource/1Mints.txt").readAllInts();
 
         Integer[] integers = Arrays.stream(ints).boxed().toArray(Integer[]::new);
@@ -36,6 +36,17 @@ public class MergeTest extends TestCase {
 
         Merge.sort(integers);
         assert  Merge.isSorted(integers);
+    }
+
+    public void testMergeBU1Mints() {
+        int[] ints = new In("src/test/resource/1Mints.txt").readAllInts();
+
+        Integer[] integers = Arrays.stream(ints).boxed().toArray(Integer[]::new);
+
+//        Selection.show(integers);
+
+        MergeBU.sort(integers);
+        assert  MergeBU.isSorted(integers);
     }
 
 }
