@@ -1,5 +1,7 @@
 package com.haohong.ch03;
 
+import com.haohong.ch01.ListQueue;
+import com.haohong.ch01.inter.Queue;
 import com.haohong.ch03.inter.ST;
 
 public class SequentialSearchST<Key, Value> implements ST<Key, Value> {
@@ -61,6 +63,11 @@ public class SequentialSearchST<Key, Value> implements ST<Key, Value> {
     }
 
     public Iterable<Key> keys() {
-        return null;
+        Queue<Key> queue = new ListQueue<Key>();
+        for (Node x = first; x != null; x = x.next) {
+            queue.enqueue(x.key);
+        }
+
+        return queue;
     }
 }

@@ -10,6 +10,10 @@ public class STTest extends TestCase {
     public void testST() {
         ST<String, String> st = new SequentialSearchST<String, String>();
 
+        for (String key : st.keys()) {
+            assert false;
+        }
+
         assert st.size() == 0;
         assert st.isEmpty();
 
@@ -30,5 +34,20 @@ public class STTest extends TestCase {
         st.put("foo", "barbar");
         assert st.size() == 2;
         assert st.get("foo").equals("barbar");
+
+        int count = 0;
+        for (String key : st.keys()) {
+            switch (count) {
+                case 0:
+                    assert key.equals("foo2");
+                    break;
+                case 1:
+                    assert key.equals("foo");
+                    break;
+                default:
+                    throw new RuntimeException("ERROR");
+            }
+            count++;
+        }
     }
 }
