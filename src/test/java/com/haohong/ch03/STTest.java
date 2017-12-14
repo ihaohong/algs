@@ -1,6 +1,7 @@
 package com.haohong.ch03;
 
 import com.haohong.ch03.inter.ST;
+import edu.princeton.cs.algs4.StdOut;
 import junit.framework.TestCase;
 
 /**
@@ -48,6 +49,20 @@ public class STTest extends TestCase {
                     throw new RuntimeException("ERROR");
             }
             count++;
+        }
+    }
+
+    public void testST2() {
+        ST<String, String> st = new SequentialSearchST<String, String>();
+        st.put("foo", "bar");
+        st.put("foo2", "bar2");
+        st.put("foo3", "bar3");
+        st.put("foo4", "bar4");
+
+        st.delete("foo4");
+
+        for (String key : st.keys()) {
+            StdOut.println(key);
         }
     }
 }

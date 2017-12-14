@@ -41,7 +41,27 @@ public class SequentialSearchST<Key, Value> implements ST<Key, Value> {
     }
 
     public void delete(Key key) {
+        if (first.key == key) {
+            if (first.next == null) {
+                first = null;
+            } else {
+                first = first.next;
+            }
+        }
 
+        for (Node x = first; x != null; x = x.next) {
+            Node nextNode = x.next; // 当前节点的下一个节点
+
+            if (nextNode == null) {
+                return;
+            }
+
+            if (x.next.key.equals(key)) {
+                x.next = x.next.next;
+                nextNode = null;
+                return;
+            }
+        }
     }
 
     public boolean contains(Key key) {
