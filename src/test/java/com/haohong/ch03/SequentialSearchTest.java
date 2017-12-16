@@ -11,7 +11,7 @@ import java.util.Arrays;
 /**
  * Created by haohong on 13/12/2017.
  */
-public class STTest extends TestCase {
+public class SequentialSearchTest extends TestCase {
     public void testST() {
         ST<String, String> st = new SequentialSearchST<String, String>();
 
