@@ -1,8 +1,12 @@
 package com.haohong.ch03;
 
 import com.haohong.ch03.inter.ST;
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 import junit.framework.TestCase;
+
+import java.util.Arrays;
 
 /**
  * Created by haohong on 13/12/2017.
@@ -64,5 +68,38 @@ public class STTest extends TestCase {
         for (String key : st.keys()) {
             StdOut.println(key);
         }
+    }
+
+    public void testFrequencyCounter() {
+        String[] words = new In("src/test/resource/tale.txt").readAllStrings();
+
+        int minlen = 8;
+        ST<String, Integer> st = new SequentialSearchST<>();
+
+        for (String word : words) {
+//            StdOut.println(word);
+            if (word.length() < minlen) {
+                continue;
+            }
+
+            if (!st.contains(word)) {
+                st.put(word, 1);
+            } else {
+                st.put(word, st.get(word) + 1);
+            }
+        }
+
+        String max = "";
+        st.put(max, 0);
+        for (String word : st.keys()) {
+//            StdOut.println(word + " " + st.get(word));
+            if (st.get(word) > st.get(max)) {
+                max = word;
+            }
+        }
+
+        assert max.equals("business");
+        assert st.get(max) == 122;
+//        StdOut.println(max + " " + st.get(max));
     }
 }

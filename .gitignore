@@ -15,3 +15,4 @@ gradle-app.setting
 
 .idea
 resources/algs4-data.zip
+src/test/resource/leipzig1M.txt
