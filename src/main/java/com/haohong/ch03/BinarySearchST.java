@@ -96,15 +96,15 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> implements Sorte
     }
 
     public void deleteMax() {
-
+        delete(max());
     }
 
     public void deleteMin() {
-
+        delete(min());
     }
 
     public Key select(int k) {
-        return null;
+        return keys[k];
     }
 
     public boolean isEmpty() {
@@ -129,15 +129,16 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> implements Sorte
     }
 
     public Key min() {
-        return null;
+        return keys[0];
     }
 
     public Key max() {
-        return null;
+        return keys[N-1];
     }
 
     public Key ceiling(Key key) {
-        return null;
+        int i = rank(key);
+        return keys[i];
     }
 
     public Key floor(Key key) {
