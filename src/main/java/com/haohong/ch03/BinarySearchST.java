@@ -1,5 +1,7 @@
 package com.haohong.ch03;
 
+import com.haohong.ch01.ListQueue;
+import com.haohong.ch01.inter.Queue;
 import com.haohong.ch03.inter.SortedST;
 
 /**
@@ -44,7 +46,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> implements Sorte
 
         // 找不到元素，添加元素
         for (int j = N; j > i; j--) {
-            keys[i] = keys[j-1];
+            keys[j] = keys[j-1];
             vals[j] = vals[j-1];
         }
 
@@ -76,7 +78,21 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> implements Sorte
     }
 
     public void delete(Key key) {
+        int i = rank(key);
 
+        // 找不到元素，直接返回
+        if (i > N || keys[i].compareTo(key) != 0) {
+            return;
+        }
+
+        // 找到元素
+        for (int j = i; j < N - 1; j++) {
+            keys[j] = keys[j+1];
+        }
+
+        keys[N-1] = null;
+
+        N--;
     }
 
     public void deleteMax() {
@@ -92,11 +108,11 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> implements Sorte
     }
 
     public boolean isEmpty() {
-        return false;
+        return size() == 0;
     }
 
     public boolean contains(Key key) {
-        return false;
+        return get(key) != null;
     }
 
     public Iterable<Key> keys(Key lo, Key hi) {
@@ -104,7 +120,12 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> implements Sorte
     }
 
     public Iterable<Key> keys() {
-        return null;
+        Queue<Key> queue = new ListQueue<Key>();
+        for (int i = 0; i < size(); i++) {
+            queue.enqueue(keys[i]);
+        }
+
+        return queue;
     }
 
     public Key min() {

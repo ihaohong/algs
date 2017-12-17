@@ -1,23 +1,26 @@
 package com.haohong.ch03;
 
 import com.haohong.ch03.inter.ST;
+import com.haohong.ch03.inter.SortedST;
 import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 import junit.framework.TestCase;
-
-import java.util.Arrays;
 
 /**
  * Created by haohong on 13/12/2017.
  */
-public class SequentialSearchTest extends TestCase {
+public class BinarySearchSTTest extends TestCase {
     public void testST() {
-        ST<String, String> st = new SequentialSearchST<String, String>();
+        SortedST<String, String> st = new BinarySearchST<String, String>(100);
+
+        StdOut.println(st.keys());
 
         for (String key : st.keys()) {
+//            StdOut.println(key);
             assert false;
         }
+
+        StdOut.println("end");
 
         assert st.size() == 0;
         assert st.isEmpty();
@@ -44,10 +47,10 @@ public class SequentialSearchTest extends TestCase {
         for (String key : st.keys()) {
             switch (count) {
                 case 0:
-                    assert key.equals("foo2");
+                    assert key.equals("foo");
                     break;
                 case 1:
-                    assert key.equals("foo");
+                    assert key.equals("foo2");
                     break;
                 default:
                     throw new RuntimeException("ERROR");
@@ -57,13 +60,15 @@ public class SequentialSearchTest extends TestCase {
     }
 
     public void testST2() {
-        ST<String, String> st = new SequentialSearchST<String, String>();
+        SortedST<String, String> st = new BinarySearchST<String, String>(100);
         st.put("foo", "bar");
         st.put("foo2", "bar2");
         st.put("foo3", "bar3");
         st.put("foo4", "bar4");
 
-        st.delete("foo4");
+        assert st.size() == 4;
+        st.delete("foo3");
+        assert st.size() == 3;
 
         for (String key : st.keys()) {
             StdOut.println(key);
@@ -74,10 +79,9 @@ public class SequentialSearchTest extends TestCase {
         String[] words = new In("src/test/resource/tale.txt").readAllStrings();
 
         int minlen = 8;
-        ST<String, Integer> st = new SequentialSearchST<>();
+        SortedST<String, Integer> st = new BinarySearchST<String, Integer>(16039);
 
         for (String word : words) {
-//            StdOut.println(word);
             if (word.length() < minlen) {
                 continue;
             }
