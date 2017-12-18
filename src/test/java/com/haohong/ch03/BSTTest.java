@@ -2,19 +2,20 @@ package com.haohong.ch03;
 
 import com.haohong.ch03.inter.SortedST;
 import edu.princeton.cs.algs4.StdOut;
+import junit.framework.TestCase;
 
 /**
  * Created by haohong on 17/12/2017.
  */
-public class BSTTest {
+public class BSTTest extends TestCase {
     public void testST()
     {
         SortedST<String, String> st = new BST<String, String>();
 
-        for (String key : st.keys()) {
+//        for (String key : st.keys()) {
 //            StdOut.println(key);
-            assert false;
-        }
+//            assert false;
+//        }
 
         assert st.size() == 0;
         assert st.isEmpty();
@@ -38,8 +39,26 @@ public class BSTTest {
         assert st.get("foo").equals("barbar");
 
         int count = 0;
-        for (String key : st.keys()) {
-            StdOut.println(key);
-        }
+//        for (String key : st.keys()) {
+//            StdOut.println(key);
+//        }
+    }
+
+    public void testMaxMin()
+    {
+        SortedST<Integer, String> st = new BST<Integer, String>();
+
+        st.put(3, "haha");
+        st.put(5, "haha");
+        st.put(1, "haha");
+        st.put(9, "haha");
+        st.put(6, "haha");
+        st.put(8, "haha");
+        st.put(7, "haha");
+        st.put(2, "haha");
+
+        assert st.max() == 9;
+        assert st.min() == 1;
+
     }
 }

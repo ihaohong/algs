@@ -63,11 +63,11 @@ public class BST<Key extends Comparable<Key>, Value> implements SortedST<Key, Va
     }
 
     public boolean contains(Key key) {
-        return false;
+        return get(key) != null;
     }
 
     public boolean isEmpty() {
-        return false;
+        return size() == 0;
     }
 
     public int size() {
@@ -83,11 +83,26 @@ public class BST<Key extends Comparable<Key>, Value> implements SortedST<Key, Va
     }
 
     public Key min() {
-        return null;
+        return min(root).key;
+    }
+    private Node min(Node x) {
+        if (x.left == null) {
+            return x;
+        }
+
+        return min(x.left);
     }
 
     public Key max() {
-        return null;
+        return max(root).key;
+    }
+
+    private Node max(Node x) {
+        if (x.right == null) {
+            return x;
+        }
+
+        return max(x.right);
     }
 
     public Key floor(Key key) {
