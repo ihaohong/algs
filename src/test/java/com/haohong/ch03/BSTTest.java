@@ -44,7 +44,7 @@ public class BSTTest extends TestCase {
 //        }
     }
 
-    public void testMaxMinFloor()
+    public void testMaxMinFloorCeiling()
     {
         SortedST<Integer, String> st = new BST<Integer, String>();
 
@@ -64,6 +64,11 @@ public class BSTTest extends TestCase {
         assert st.floor(4) == 3;
         assert st.floor(10) == 9;
         assert st.floor(0) == null;
+
+        assert st.ceiling(5) == 5;
+        assert st.ceiling(4) == 5;
+        assert st.ceiling(10) == null;
+        assert st.ceiling(0) == 1;
 
     }
 }
