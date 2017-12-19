@@ -56,4 +56,16 @@ public class SeparateChainingHashSTTest extends TestCase {
 
         assert max.equals("business");
     }
+
+    public void testSizeIsEmpty() {
+        ST<String, String> st = new SeparateChainingHashST<String, String>();
+
+        assert st.size() == 0;
+        assert st.isEmpty();
+
+        st.put("a", "aa");
+
+        assert st.size() == 1;
+        assert !st.isEmpty();
+    }
 }

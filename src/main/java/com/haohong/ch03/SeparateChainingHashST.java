@@ -5,7 +5,7 @@ import com.haohong.ch01.inter.Queue;
 import com.haohong.ch03.inter.ST;
 
 public class SeparateChainingHashST<Key, Value> implements ST<Key, Value> {
-    private int N; // 键值对总数
+    private int N = 0; // 键值对总数
     private int M; // 散列表的大小
     private SequentialSearchST<Key, Value>[] st;
 
@@ -29,6 +29,7 @@ public class SeparateChainingHashST<Key, Value> implements ST<Key, Value> {
 
     public void put(Key key, Value val) {
         st[hash(key)].put(key, val);
+        N++;
     }
 
     public Value get(Key key) {
@@ -43,10 +44,10 @@ public class SeparateChainingHashST<Key, Value> implements ST<Key, Value> {
     }
 
     public boolean isEmpty() {
-        return false;
+        return size() == 0;
     }
     public int size() {
-        return 0;
+        return N;
     }
     public Iterable<Key> keys() {
         Queue<Key> queue = new ListQueue<Key>();
