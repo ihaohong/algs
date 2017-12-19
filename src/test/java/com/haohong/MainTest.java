@@ -7,5 +7,7 @@ public class MainTest extends TestCase {
         String result = new Main().hello();
 
         assertEquals(result, "hello world");
+
+        assert false;
     }
 }
