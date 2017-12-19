@@ -172,8 +172,25 @@ public class BST<Key extends Comparable<Key>, Value> implements SortedST<Key, Va
         return 0;
     }
 
+    // 返回排名为k的节点
     public Key select(int k) {
-        return null;
+        return select(root, k).key;
+    }
+
+    public Node select(Node x, int k) {
+        if (x == null) {
+            return null;
+        }
+
+        int t = size(x.left);
+
+        if (t > k) {
+            return select(x.left, k);
+        } else if (t < k) {
+            return select(x.right, k-t-1);
+        } else {
+            return x;
+        }
     }
 
     public void deleteMin() {

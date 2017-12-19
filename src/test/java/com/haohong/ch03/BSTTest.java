@@ -71,4 +71,21 @@ public class BSTTest extends TestCase {
         assert st.ceiling(0) == 1;
 
     }
+
+    public void testSelectRank() {
+        SortedST<Integer, String> st = new BST<Integer, String>();
+
+        st.put(3, "haha");
+        st.put(5, "haha");
+        st.put(1, "haha");
+        st.put(9, "haha");
+        st.put(6, "haha");
+        st.put(8, "haha");
+        st.put(7, "haha");
+        st.put(2, "haha");
+
+        assert st.select(0) == 1;
+        assert st.select(1) == 2;
+        assert st.select(3) == 5;
+    }
 }
