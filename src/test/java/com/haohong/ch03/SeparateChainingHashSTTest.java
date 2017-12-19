@@ -68,4 +68,27 @@ public class SeparateChainingHashSTTest extends TestCase {
         assert st.size() == 1;
         assert !st.isEmpty();
     }
+
+    public void testDelete() {
+        ST<String, String> st = new SeparateChainingHashST<String, String>();
+
+        st.put("a", "aa");
+
+        assert st.size() == 1;
+        assert !st.isEmpty();
+
+        st.put("b", "bb");
+
+        assert st.size() == 2;
+
+
+        st.put("c", "cc");
+
+        assert st.size() == 3;
+
+        st.delete("b");
+
+        assert st.size() == 2;
+        assert st.get("b") == null;
+    }
 }

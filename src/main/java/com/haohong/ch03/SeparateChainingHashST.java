@@ -37,7 +37,9 @@ public class SeparateChainingHashST<Key, Value> implements ST<Key, Value> {
     }
 
     public void delete(Key key) {
+        st[hash(key)].delete(key);
 
+        N--;
     }
     public boolean contains(Key key) {
         return get(key) != null;
