@@ -46,15 +46,14 @@ public class SeparateChainingHashSTTest extends TestCase {
 
         assert st.get("business") == 122;
 
-//        String max = "";
-//        st.put(max, 0);
-//        for (String word : st.keys()) {
-//            if (st.get(word) > st.get(max)) {
-//                max = word;
-//            }
-//        }
-//
-//        assert max.equals("business");
-//        assert st.get(max) == 122;
+        String max = "";
+        st.put(max, 0);
+        for (String word : st.keys()) {
+            if (st.get(word) > st.get(max)) {
+                max = word;
+            }
+        }
+
+        assert max.equals("business");
     }
 }

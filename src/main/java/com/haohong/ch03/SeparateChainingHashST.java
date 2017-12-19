@@ -1,5 +1,7 @@
 package com.haohong.ch03;
 
+import com.haohong.ch01.ListQueue;
+import com.haohong.ch01.inter.Queue;
 import com.haohong.ch03.inter.ST;
 
 public class SeparateChainingHashST<Key, Value> implements ST<Key, Value> {
@@ -47,6 +49,15 @@ public class SeparateChainingHashST<Key, Value> implements ST<Key, Value> {
         return 0;
     }
     public Iterable<Key> keys() {
-        return null;
+        Queue<Key> queue = new ListQueue<Key>();
+
+        for (int i = 0; i < M; i++) { // 遍历每个拉链
+            Iterable<Key> keys = st[i].keys();
+            for (Key key : keys) {
+                queue.enqueue(key);
+            }
+        }
+
+        return queue;
     }
 }
