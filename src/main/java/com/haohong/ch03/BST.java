@@ -169,7 +169,23 @@ public class BST<Key extends Comparable<Key>, Value> implements SortedST<Key, Va
     }
 
     public int rank(Key key) {
-        return 0;
+        return rank(key, root);
+    }
+
+    private int rank(Key key, Node x) {
+        if (x == null) {
+            return 0;
+        }
+
+        int cmp = key.compareTo(x.key);
+
+        if (cmp < 0) {
+            return rank(key, x.left);
+        } else if (cmp > 0) {
+            return 1 + size(x.left) + rank(key, x.right);
+        } else {
+            return size(x.left);
+        }
     }
 
     // 返回排名为k的节点
@@ -177,7 +193,7 @@ public class BST<Key extends Comparable<Key>, Value> implements SortedST<Key, Va
         return select(root, k).key;
     }
 
-    public Node select(Node x, int k) {
+    private Node select(Node x, int k) {
         if (x == null) {
             return null;
         }

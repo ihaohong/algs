@@ -87,5 +87,9 @@ public class BSTTest extends TestCase {
         assert st.select(0) == 1;
         assert st.select(1) == 2;
         assert st.select(3) == 5;
+
+        assert st.rank(1) == 0;
+        assert st.rank(2) == 1;
+        assert st.rank(5) == 3;
     }
 }
