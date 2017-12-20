@@ -13,6 +13,12 @@ public class LinearProbingHashST<Key, Value> implements ST<Key, Value> {
         vals = (Value[]) new Object[M];
     }
 
+    public LinearProbingHashST(int cap) {
+        this.M = cap;
+        keys = (Key[]) new Object[M];
+        vals = (Value[]) new Object[M];
+    }
+
     public void put(Key key, Value val) {
         if (N >= M/2) {
             resize(M*2);
@@ -92,7 +98,22 @@ public class LinearProbingHashST<Key, Value> implements ST<Key, Value> {
     }
 
     private void resize(int cap) {
+        System.out.println("resize " + cap);
 
+        LinearProbingHashST<Key, Value> t;
+        t = new LinearProbingHashST<Key, Value>(cap);
+
+        for (int i = 0; i < M; i++) {
+            if (keys[i] != null) {
+                t.put(keys[i], vals[i]);
+            }
+        }
+
+        keys = t.keys;
+        vals = t.vals;
+        M = t.M;
+
+        System.out.println("M is "  + M);
     }
 
     private int hash(Key key) {

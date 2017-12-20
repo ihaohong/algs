@@ -15,32 +15,32 @@ public class LinearProbingHashSTTest extends TestCase {
 
     }
 
-//    public void testFrequencyCounter() {
-//        String[] words = new In("src/test/resource/tale.txt").readAllStrings();
-//
-//        int minlen = 8;
-//        ST<String, Integer> st = new LinearProbingHashST<String, Integer>();
-//
-//        int count = 0;
-//        for (String word : words) {
-//
-//            if (word.equals("business")) {
-//                count++;
-//            }
-//
-//            if (word.length() < minlen) {
-//                continue;
-//            }
-//
-//            if (!st.contains(word)) {
-//                st.put(word, 1);
-//            } else {
-//                st.put(word, st.get(word) + 1);
-//            }
-//        }
-//
-//        assert st.get("business") == 122;
-//
+    public void testFrequencyCounter() {
+        String[] words = new In("src/test/resource/tale.txt").readAllStrings();
+
+        int minlen = 8;
+        ST<String, Integer> st = new LinearProbingHashST<String, Integer>();
+
+        int count = 0;
+        for (String word : words) {
+
+            if (word.equals("business")) {
+                count++;
+            }
+
+            if (word.length() < minlen) {
+                continue;
+            }
+
+            if (!st.contains(word)) {
+                st.put(word, 1);
+            } else {
+                st.put(word, st.get(word) + 1);
+            }
+        }
+
+        assert st.get("business") == 122;
+
 //        String max = "";
 //        st.put(max, 0);
 //        for (String word : st.keys()) {
@@ -50,7 +50,7 @@ public class LinearProbingHashSTTest extends TestCase {
 //        }
 //
 //        assert max.equals("business");
-//    }
+    }
 
     public void testSizeIsEmpty() {
         ST<String, String> st = new LinearProbingHashST<String, String>();
