@@ -1,5 +1,7 @@
 package com.haohong.ch03;
 
+import com.haohong.ch01.ListQueue;
+import com.haohong.ch01.inter.Queue;
 import com.haohong.ch03.inter.ST;
 
 public class LinearProbingHashST<Key, Value> implements ST<Key, Value> {
@@ -94,12 +96,18 @@ public class LinearProbingHashST<Key, Value> implements ST<Key, Value> {
     }
 
     public Iterable<Key> keys() {
-        return null;
+        Queue<Key> queue = new ListQueue<Key>();
+
+        for (Key key : keys) {
+            if (key != null) {
+                queue.enqueue(key);
+            }
+        }
+
+        return queue;
     }
 
     private void resize(int cap) {
-        System.out.println("resize " + cap);
-
         LinearProbingHashST<Key, Value> t;
         t = new LinearProbingHashST<Key, Value>(cap);
 
@@ -112,8 +120,6 @@ public class LinearProbingHashST<Key, Value> implements ST<Key, Value> {
         keys = t.keys;
         vals = t.vals;
         M = t.M;
-
-        System.out.println("M is "  + M);
     }
 
     private int hash(Key key) {
