@@ -20,5 +20,7 @@ public class GraphTest extends TestCase {
             assert v == result[index];
             index++;
         }
+
+//        StdOut.println(G);
     }
 }
