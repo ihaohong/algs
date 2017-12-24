@@ -57,4 +57,16 @@ public class StackTest extends TestCase {
 
         assert left.toString().equals("is to ");
     }
+
+    public void testListStackToString() {
+        String[] items = {"to", "be", "or", "not", "to", "be"};
+
+        Stack<String> stack = new ListStack<String>();
+
+        for (String item : items) {
+            stack.push(item);
+        }
+
+        assert stack.toString().equals("be to not or be to ");
+    }
 }

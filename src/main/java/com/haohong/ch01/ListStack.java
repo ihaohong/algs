@@ -1,6 +1,7 @@
 package com.haohong.ch01;
 
 import com.haohong.ch01.inter.Stack;
+import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Iterator;
 
@@ -62,5 +63,16 @@ public class ListStack<Item> implements Stack<Item> {
         public void remove() {
 
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        for (Item item : this) {
+            sb.append(item.toString() + " ");
+        }
+
+        return sb.toString();
     }
 }
