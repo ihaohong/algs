@@ -8,6 +8,6 @@ public class MainTest extends TestCase {
 
         assertEquals(result, "hello world");
 
-//        assert false;
+        assert false;
     }
 }
