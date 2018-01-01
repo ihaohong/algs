@@ -25,6 +25,7 @@ public class DijkstraSPTest extends TestCase {
 
             StdOut.println();
         }
+
     }
 
 }
