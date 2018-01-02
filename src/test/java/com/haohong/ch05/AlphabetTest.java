@@ -71,4 +71,28 @@ public class AlphabetTest extends TestCase {
             idx++;
         }
     }
+
+    public void testPi() {
+        Alphabet alphabet = new Alphabet("0123456789");
+
+        int R = alphabet.R();
+        int[] count = new int[R];
+
+        String s = new In("src/test/resource/pi.txt").readAll();
+        int N = s.length();
+
+        for (int i = 0; i < N; i++) {
+            if (alphabet.contains(s.charAt(i))) {
+                count[alphabet.toIndex(s.charAt(i))]++;
+            }
+        }
+
+        int[] expect = {9999, 10137, 9908, 10026, 9971, 10026, 10028, 10025, 9978, 9902};
+        int idx = 0;
+
+        for (int c = 0; c < R; c++) {
+            assert count[c] == expect[idx];
+            idx++;
+        }
+    }
 }
