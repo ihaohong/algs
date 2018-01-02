@@ -2,6 +2,7 @@ package com.haohong.ch05;
 
 import edu.princeton.cs.algs4.StdOut;
 import junit.framework.TestCase;
+import edu.princeton.cs.algs4.In;
 
 public class AlphabetTest extends TestCase {
     public void testAlphabet() {
@@ -46,5 +47,28 @@ public class AlphabetTest extends TestCase {
         indices = new int[]{4, 0, 1, 2};
         assert a.toChars(indices).equals("AEDC");
 
+    }
+
+    public void testArba() {
+        Alphabet alphabet = new Alphabet("ABCDR");
+
+        int R = alphabet.R();
+        int[] count = new int[R];
+
+        String s = new In("src/test/resource/abra.txt").readAll();
+        int N = s.length();
+
+        for (int i = 0; i < N; i++) {
+            if (alphabet.contains(s.charAt(i))) {
+                count[alphabet.toIndex(s.charAt(i))]++;
+            }
+        }
+
+        int[] expect = {5, 2, 1, 1, 2};
+        int idx = 0;
+        for (int c = 0; c < R; c++) {
+            assert count[c] == expect[idx];
+            idx++;
+        }
     }
 }
