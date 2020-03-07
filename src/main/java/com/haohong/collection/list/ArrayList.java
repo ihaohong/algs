@@ -55,6 +55,16 @@ public class ArrayList<T> implements List<T> {
         return indexOf(e) != -1;
     }
 
+    @Override
+    public boolean delete(int index) {
+        for (int i = index; i < size - 1; i++) {
+            objs[i] = objs[i+1];
+        }
+        size--;
+        objs[size] = null;
+        return true;
+    }
+
     /**
      * 扩容
      * @param ensureSize
