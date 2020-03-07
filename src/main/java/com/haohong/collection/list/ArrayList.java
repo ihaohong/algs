@@ -5,9 +5,14 @@ import java.util.Arrays;
 public class ArrayList<T> implements List<T> {
     private Object[] objs;
     private int size = 0; // 已使用容量
-    private int cap = 10; // 当前总容量
+    private int cap = 0; // 当前总容量
 
     public ArrayList() {
+        this(10);
+    }
+
+    public ArrayList(int cap) {
+        this.cap = cap;
         objs = new Object[cap];
     }
 
@@ -34,7 +39,14 @@ public class ArrayList<T> implements List<T> {
      */
     protected void ensureSize(int ensureSize) {
         if (ensureSize <= cap) return;
-        cap *= 2;
-        objs = Arrays.copyOf(objs, cap);
+
+        ArrayList<T> newList = new ArrayList<>(cap*2);
+        for (int i=0; i<size; i++) {
+            newList.add(get(i));
+        }
+
+        objs = newList.objs;
+        size = newList.size;
+        cap = newList.cap;
     }
 }
