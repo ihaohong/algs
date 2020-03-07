@@ -12,6 +12,11 @@ public class ArrayList<T> implements List<T> {
     }
 
     @Override
+    public T get(int i) {
+        return (T) objs[i];
+    }
+
+    @Override
     public boolean add(T e) {
         ensureSize(size + 1);
         objs[size++] = e;

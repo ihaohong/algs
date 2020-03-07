@@ -18,4 +18,16 @@ public class ArrayListTest {
 
         Assert.assertEquals(102, list.size());
     }
+
+    @Test
+    public void arrayListGet() {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            list.add(i*3);
+        }
+
+        for (int i = 0; i < 100; i++) {
+            Assert.assertEquals(Integer.valueOf(i*3), list.get(i));
+        }
+    }
 }
