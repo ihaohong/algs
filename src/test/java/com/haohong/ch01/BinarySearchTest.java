@@ -30,4 +30,28 @@ public class BinarySearchTest extends TestCase {
 
         assertEquals("50,99,13,", result);
     }
+
+    public void testRankByRecursion() {
+        int[] arr = {14, 32, 34, 35};
+
+        assertEquals(0, BinarySearch.rankByRecursion(14, arr));
+        assertEquals(1, BinarySearch.rankByRecursion(32, arr));
+        assertEquals(2, BinarySearch.rankByRecursion(34, arr));
+        assertEquals(3, BinarySearch.rankByRecursion(35, arr));
+    }
+
+    public void testRankByRecursion2() {
+        int[] whitelist = new In("src/test/resource/tinyW.txt").readAllInts();
+        Arrays.sort(whitelist);
+
+        int[] alllist = new In("src/test/resource/tinyT.txt").readAllInts();
+        String result = "";
+        for (int key : alllist) {
+            if (BinarySearch.rankByRecursion(key, whitelist) < 0) {
+                result += key + ",";
+            }
+        }
+
+        assertEquals("50,99,13,", result);
+    }
 }
