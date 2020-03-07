@@ -1,7 +1,5 @@
 package com.haohong.collection.list;
 
-import java.util.Arrays;
-
 public class ArrayList<T> implements List<T> {
     private Object[] objs;
     private int size = 0; // 已使用容量
@@ -50,6 +48,11 @@ public class ArrayList<T> implements List<T> {
             if (e.equals(get(i))) return i;
         }
         return -1;
+    }
+
+    @Override
+    public boolean contains(T e) {
+        return indexOf(e) != -1;
     }
 
     /**

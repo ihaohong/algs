@@ -67,4 +67,18 @@ public class ArrayListTest {
 
         Assert.assertEquals(-1, list.indexOf(1000));
     }
+
+    @Test
+    public void arrayListContains() {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            list.add(i*3);
+        }
+
+        for (int i = 0; i < 100; i++) {
+            Assert.assertTrue(list.contains(i*3));
+        }
+
+        Assert.assertFalse(list.contains(1000));
+    }
 }

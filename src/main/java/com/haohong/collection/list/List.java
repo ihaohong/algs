@@ -6,7 +6,7 @@ public interface List<T> {
     int size();
     T get(int i);
     int indexOf(T e);
-//    boolean contains(T e);
+    boolean contains(T e);
 //    boolean remove(Object o);
 //    boolean delete(int index);
 //    Iterator<T> iterator();
