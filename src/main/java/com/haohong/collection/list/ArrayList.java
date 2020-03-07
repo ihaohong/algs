@@ -13,7 +13,7 @@ public class ArrayList<T> implements List<T> {
 
     public ArrayList(int cap) {
         this.cap = cap;
-        objs = new Object[cap];
+        objs = (T[]) new Object[cap];
     }
 
     @Override
@@ -25,6 +25,17 @@ public class ArrayList<T> implements List<T> {
     public boolean add(T e) {
         ensureSize(size + 1);
         objs[size++] = e;
+        return true;
+    }
+
+    @Override
+    public boolean add(int index, T e) {
+        ensureSize(size + 1);
+        for (int i = size - 1; i >= index; i--) {
+            objs[i + 1] = objs[i];
+        }
+        objs[index] = e;
+        size++;
         return true;
     }
 
