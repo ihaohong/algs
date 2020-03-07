@@ -44,6 +44,14 @@ public class ArrayList<T> implements List<T> {
         return size;
     }
 
+    @Override
+    public int indexOf(T e) {
+        for (int i=0; i<size; i++) {
+            if (e.equals(get(i))) return i;
+        }
+        return -1;
+    }
+
     /**
      * 扩容
      * @param ensureSize

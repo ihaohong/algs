@@ -5,7 +5,7 @@ public interface List<T> {
     boolean add(int index, T e);
     int size();
     T get(int i);
-//    int indexOf(T e);
+    int indexOf(T e);
 //    boolean contains(T e);
 //    boolean remove(Object o);
 //    boolean delete(int index);

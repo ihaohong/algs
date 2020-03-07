@@ -53,4 +53,18 @@ public class ArrayListTest {
             Assert.assertEquals(Integer.valueOf(i*3), list.get(i));
         }
     }
+
+    @Test
+    public void arrayListIndexOf() {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            list.add(i*3);
+        }
+
+        for (int i = 0; i < 100; i++) {
+            Assert.assertEquals(i, list.indexOf(i*3));
+        }
+
+        Assert.assertEquals(-1, list.indexOf(1000));
+    }
 }
