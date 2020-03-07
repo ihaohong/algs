@@ -102,4 +102,25 @@ public class ArrayListTest {
 
         Assert.assertEquals(null, list.get(99));
     }
+
+    @Test
+    public void arrayListRemove() {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            list.add(i*3);
+        }
+
+        list.remove(50*3);
+
+        Assert.assertEquals(99, list.size());
+        for (int i=0; i<50; i++) {
+            Assert.assertEquals(Integer.valueOf(i*3), list.get(i));
+        }
+
+        for (int i=50; i < 100-1; i++) {
+            Assert.assertEquals("i = " + i, Integer.valueOf((i+1)*3), list.get(i));
+        }
+
+        Assert.assertEquals(null, list.get(99));
+    }
 }

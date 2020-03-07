@@ -65,6 +65,11 @@ public class ArrayList<T> implements List<T> {
         return true;
     }
 
+    @Override
+    public boolean remove(T o) {
+        return delete(indexOf(o));
+    }
+
     /**
      * 扩容
      * @param ensureSize
