@@ -1,6 +1,8 @@
 package com.haohong.collection.list;
 
-public class ArrayList<T> implements List<T> {
+import java.util.Iterator;
+
+public class ArrayList<T> implements List<T>, Iterable<T> {
     private Object[] objs;
     private int size = 0; // 已使用容量
     private int cap = 0; // 当前总容量
@@ -70,11 +72,30 @@ public class ArrayList<T> implements List<T> {
         return delete(indexOf(o));
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new Itr();
+    }
+
+    private class Itr implements Iterator<T> {
+        private int cursor = 0;
+
+        @Override
+        public boolean hasNext() {
+            return null != objs[cursor];
+        }
+
+        @Override
+        public T next() {
+            return (T) objs[cursor++];
+        }
+    }
+
     /**
      * 扩容
      * @param ensureSize
      */
-    protected void ensureSize(int ensureSize) {
+    private void ensureSize(int ensureSize) {
         if (ensureSize <= cap) return;
 
         ArrayList<T> newList = new ArrayList<>(cap*2);

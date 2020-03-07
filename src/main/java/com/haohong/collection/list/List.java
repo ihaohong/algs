@@ -1,5 +1,7 @@
 package com.haohong.collection.list;
 
+import java.util.Iterator;
+
 public interface List<T> {
     boolean add(T e);
     boolean add(int index, T e);
@@ -9,5 +11,5 @@ public interface List<T> {
     boolean contains(T e);
     boolean remove(T o);
     boolean delete(int index);
-//    Iterator<T> iterator();
+    Iterator<T> iterator();
 }

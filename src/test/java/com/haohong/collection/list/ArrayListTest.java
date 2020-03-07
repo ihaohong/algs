@@ -3,6 +3,8 @@ package com.haohong.collection.list;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Iterator;
+
 public class ArrayListTest {
     @Test
     public void arrayListSize() {
@@ -122,5 +124,22 @@ public class ArrayListTest {
         }
 
         Assert.assertEquals(null, list.get(99));
+    }
+
+    @Test
+    public void arrayListIterator() {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            list.add(i*3);
+        }
+
+        int index = 0;
+        Iterator<Integer> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            Integer current = iterator.next();
+            Assert.assertEquals(Integer.valueOf(3*index++), current);
+        }
+
+        Assert.assertEquals(100, index);
     }
 }
