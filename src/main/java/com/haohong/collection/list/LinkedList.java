@@ -2,6 +2,10 @@ package com.haohong.collection.list;
 
 import java.util.Iterator;
 
+/**
+ * 改为双向链表
+ * @param <T>
+ */
 public class LinkedList <T> implements List<T> {
     private int size = 0;
     private Node<T> first;

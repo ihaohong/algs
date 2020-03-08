@@ -5,6 +5,9 @@ import org.junit.Test;
 
 import java.util.Iterator;
 
+/**
+ * TDD，先写测试用例
+ */
 abstract class ListTest {
     @Test
     public void arrayListSize() {

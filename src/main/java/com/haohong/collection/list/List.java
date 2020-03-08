@@ -10,6 +10,12 @@ public interface List<T> {
     int indexOf(T e);
     boolean contains(T e);
     boolean delete(int index);
-    boolean remove(T o);
+    boolean remove(T e);
     Iterator<T> iterator();
+
+// TODO
+//    void lPush(T e);
+//    T lPop();
+//    void rPush(T e);
+//    T rPop();
 }
