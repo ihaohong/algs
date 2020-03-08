@@ -1,7 +1,7 @@
 Leet Code
 
 ## 链表
-1. [反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) Easy
+1. [~~反转链表~~](https://leetcode-cn.com/problems/reverse-linked-list/) Easy
 2. [反转子链表](https://leetcode-cn.com/problems/reverse-linked-list-ii/) Medium
 3. [求两个链表的交点](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/) Easy
 4. [链表求环](https://leetcode-cn.com/problems/linked-list-cycle/) Medium
