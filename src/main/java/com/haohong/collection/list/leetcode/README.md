@@ -9,3 +9,21 @@ Leet Code
 6. [复制带随机指针的链表](https://leetcode-cn.com/problems/copy-list-with-random-pointer/) Hard
 7. [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) Easy
 8. [合并多个有序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/) Hard
+
+## 栈、队列、堆
+
+## 贪心
+
+## 递归、回溯、分治
+
+## 二叉树与图
+
+## 二分查找与二叉排序树
+
+## 哈希表与字符串
+
+## 搜索
+
+## 动态规划
+
+## 复杂数据结构
