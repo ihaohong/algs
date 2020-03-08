@@ -75,7 +75,7 @@ public class LinkedList <T> implements List<T> {
             first = first.next;
         } else {
             Node<T> prev = node(index - 1);
-            prev.next = prev.next.next; // todo 验证是否会被垃圾回收
+            prev.next = prev.next.next;
         }
 
         size--;

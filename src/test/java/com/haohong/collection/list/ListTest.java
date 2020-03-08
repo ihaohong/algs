@@ -122,6 +122,27 @@ abstract class ListTest {
     }
 
     @Test
+    public void delete2() {
+        List<Integer> list = this.generateList();
+        for (int i = 0; i < 100; i++) {
+            list.add(i*3);
+        }
+
+        list.delete(99);
+        list.delete(0);
+
+        int i = 0;
+        for (; i<100-2; i++) {
+            Assert.assertEquals(Integer.valueOf((i+1)*3), list.get(i));
+        }
+
+        try {
+            list.get(i);
+            Assert.fail();
+        } catch (IndexOutOfBoundsException e) {}
+    }
+
+    @Test
     public void arrayListRemove() {
         List<Integer> list = this.generateList();
         for (int i = 0; i < 100; i++) {
