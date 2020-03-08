@@ -9,7 +9,7 @@ public interface List<T> {
     T get(int i);
     int indexOf(T e);
     boolean contains(T e);
-    boolean remove(T o);
     boolean delete(int index);
+    boolean remove(T o);
     Iterator<T> iterator();
 }

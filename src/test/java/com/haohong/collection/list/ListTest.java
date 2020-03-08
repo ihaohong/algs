@@ -54,6 +54,11 @@ abstract class ListTest {
         for (int i = 0; i < 100; i++) {
             Assert.assertEquals(Integer.valueOf(i*3), list.get(i));
         }
+
+        try {
+            list.get(100);
+            Assert.fail();
+        } catch (IndexOutOfBoundsException e) {}
     }
 
     @Test
@@ -66,6 +71,11 @@ abstract class ListTest {
         for (int i = 0; i < 100; i++) {
             Assert.assertEquals(i, list.indexOf(i*3));
         }
+
+        list.add(null);
+        list.add(null);
+        Assert.assertNull(list.get(100));
+        Assert.assertNull(list.get(101));
 
         Assert.assertEquals(-1, list.indexOf(1000));
     }
@@ -84,6 +94,9 @@ abstract class ListTest {
         Assert.assertFalse(list.contains(1000));
     }
 
+    /**
+     * todo 需要增加头尾节点是否能被删除掉的场景
+     */
     @Test
     public void arrayListDelete() {
         List<Integer> list = this.generateList();
@@ -102,7 +115,10 @@ abstract class ListTest {
             Assert.assertEquals("i = " + i, Integer.valueOf((i+1)*3), list.get(i));
         }
 
-        Assert.assertEquals(null, list.get(99));
+        try {
+            list.get(99);
+            Assert.fail();
+        } catch (IndexOutOfBoundsException e) {}
     }
 
     @Test
@@ -123,7 +139,10 @@ abstract class ListTest {
             Assert.assertEquals("i = " + i, Integer.valueOf((i+1)*3), list.get(i));
         }
 
-        Assert.assertEquals(null, list.get(99));
+        try {
+            list.get(99);
+            Assert.fail();
+        } catch (IndexOutOfBoundsException e) {}
     }
 
     @Test

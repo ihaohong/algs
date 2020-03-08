@@ -2,7 +2,7 @@ package com.haohong.collection.list;
 
 import java.util.Iterator;
 
-public class ArrayList<T> implements List<T>, Iterable<T> {
+public class ArrayList<T> implements List<T> {
     private Object[] objs;
     private int size = 0; // 已使用容量
     private int cap = 0; // 当前总容量
@@ -18,6 +18,7 @@ public class ArrayList<T> implements List<T>, Iterable<T> {
 
     @Override
     public T get(int i) {
+        checkIndex(i);
         return (T) objs[i];
     }
 
@@ -75,6 +76,10 @@ public class ArrayList<T> implements List<T>, Iterable<T> {
     @Override
     public Iterator<T> iterator() {
         return new Itr();
+    }
+
+    private void checkIndex(int index) {
+        if (index > size-1) throw new IndexOutOfBoundsException();
     }
 
     private class Itr implements Iterator<T> {
