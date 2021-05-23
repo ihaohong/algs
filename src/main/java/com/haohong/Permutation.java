@@ -1,4 +1,4 @@
-package com.haohong.ch01;
+package com.haohong;
 
 import edu.princeton.cs.algs4.StdIn;
 import java.util.NoSuchElementException;

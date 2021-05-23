@@ -1,4 +1,4 @@
-package com.haohong.ch01;
+package com.haohong;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
